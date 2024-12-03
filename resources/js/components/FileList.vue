@@ -47,7 +47,7 @@
       <div class="flex justify-between items-baseline mt-6" v-if="fileStore.filteredFolders?.length > 0">
         <div class="ml-1 block text-sm text-gray-500 dark:text-gray-400 truncate">Log files on {{
           fileStore.selectedHost?.name
-        }}</div>
+          }}</div>
         <div class="text-sm text-gray-500 dark:text-gray-400">
           <label for="file-sort-direction" class="sr-only">Sort direction</label>
           <select id="file-sort-direction" class="select" v-model="fileStore.direction">
@@ -265,7 +265,9 @@ const logout = async () => {
       }
     });
 
-    if (!response.ok) {
+    if (response.ok) {
+      window.location.href = '/login'; // Redirect to home or login page after logout
+    } else {
       console.error('Logout failed');
     }
   } catch (error) {
