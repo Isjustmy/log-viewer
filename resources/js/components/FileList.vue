@@ -18,12 +18,15 @@
           </span>
         </h1>
 
-        <div v-if="LogViewer.back_to_system_url">
-          <a :href="LogViewer.back_to_system_url"
-             class="rounded shrink inline-flex items-center text-sm text-gray-500 dark:text-gray-400 hover:text-brand-800 dark:hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:focus:ring-brand-700 mt-0">
-            <ArrowLeftIcon class="h-3 w-3 mr-1.5" />
-            {{ LogViewer.back_to_system_label || `Back to ${LogViewer.app_name}` }}
-          </a>
+        <div>
+          <form method="POST" action="{{ route('logout') }}" class="inline">
+            @csrf
+            <button type="submit"
+              class="rounded shrink inline-flex items-center text-sm text-gray-500 dark:text-gray-400 hover:text-brand-800 dark:hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:focus:ring-brand-700 mt-0">
+              <ArrowLeftIcon class="h-3 w-3 mr-1.5" />
+              Logout
+            </button>
+          </form>
         </div>
       </div>
 
